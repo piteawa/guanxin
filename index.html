@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极慢速粒子背景</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景Canvas -->
+    <canvas id="backgroundCanvas"></canvas>
+    
+    <!-- 视觉装饰元素 -->
+    <div class="dynamic-gradient"></div>
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="mouse-halo" id="mouseHalo"></div>
+    
+    <!-- 菜单栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo区域 -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="寻隐轩" class="logo-img">
+                    <span class="logo-text">寻隐轩</span>
+                </a>
+            </div>
+            
+            <!-- 主要菜单 -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+ 
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link">
+                        <i class="fas fa-images"></i>
+                        <span>作品展示</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="tutorials.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>教程文档</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="tools.html" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <span>开发工具</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="tools/downloads.html" class="dropdown-item">
+                            <i class="fas fa-download"></i>
+                            <span>资源下载</span>
+                        </a>
+                        <a href="tools/plugins.html" class="dropdown-item">
+                            <i class="fas fa-plug"></i>
+                            <span>插件扩展</span>
+                        </a>
+                        <a href="tools/examples.html" class="dropdown-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>示例项目</span>
+                        </a>
+                        <a href="tools/performance.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>性能分析</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="community.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>社区论坛</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>关于我们</span>
+                    </a>
+                </li>
+                <!-- 外部链接示例 -->
+                <li class="nav-item">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="hamburger" aria-label="菜单">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- 移动端菜单遮罩 -->
+    <div class="mobile-overlay"></div>
+    
+    <!-- 主内容区域 -->
+ <div class="content">
+        <div class="header">
+            <h1 class="glow-title">寻隐轩</h1>
+            <p class="subtitle">只在此山中，云深不知处</p>
+   </div>
+        <div class="info-section" id="usage">
+          
+        </div>
+        
+    
+
+    <!-- 加载动画容器 -->
+    <div class="page-transition">
+        <div class="loading-particles">
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 0s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 0.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 0.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 0.75s;"></div>
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 1s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 1.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 1.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 1.75s;"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
