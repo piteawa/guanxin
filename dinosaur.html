@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻隐轩</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 加载动画容器 -->
+    <div class="page-transition">
+        <div class="loading-particles">
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 0s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 0.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 0.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 0.75s;"></div>
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 1s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 1.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 1.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 1.75s;"></div>
+        </div>
+    </div>
+    
+    <!-- 背景Canvas -->
+    <canvas id="backgroundCanvas"></canvas>
+    
+    <!-- 视觉装饰元素 -->
+    <div class="dynamic-gradient"></div>
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="mouse-halo" id="mouseHalo"></div>
+    
+    <!-- 菜单栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo区域 -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="寻隐轩" width="150" height="50">
+                </a>
+            </div>
+            
+            <!-- 主要菜单 -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a href="tools.html" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <span>实用工具</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="cood.html" class="dropdown-item">
+                            <i class="fas fa-code"></i>
+                            <span>HTML相关</span>
+                        </a>
+                        <a href="counter.html" class="dropdown-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>文字计数器</span>
+                        </a>
+                        <a href="textfinddiferent.html" class="dropdown-item">
+                            <i class="fas fa-search"></i>
+                            <span>文字找不同</span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="guanxin.html" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <span>网站站长</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a href="games.html" class="nav-link">
+                        <i class="fas fa-gamepad"></i>
+                        <span>小游戏</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="dinosaur.html" class="dropdown-item">
+                            <i class="fas fa-dragon"></i>
+                            <span>小恐龙</span>
+                        </a>
+                        <a href="2048.html" class="dropdown-item">
+                            <i class="fas fa-th-large"></i>
+                            <span>2048</span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="hamburger" id="hamburger" aria-label="菜单">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- 移动端菜单遮罩 -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    
+    <!-- 主内容区域 -->
+    <!-- 直接iframe可能被目标网站阻止 -->
+    <iframe 
+        src="https://dinosaur.game/zh/dinosaur-game" 
+        width="1000" 
+        height="600"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+    
+ <script src="script.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
