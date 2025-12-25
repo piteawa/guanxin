@@ -6,6 +6,121 @@
     <title>寻隐轩</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+        }
+        
+        .container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .iframe-wrapper {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: white;
+        }
+        
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .controls {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .controls button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        .controls button:hover {
+            background: #45a049;
+        }
+        
+        .fullscreen-btn {
+            background: #2196F3 !important;
+        }
+        
+        .fullscreen-btn:hover {
+            background: #1976D2 !important;
+        }
+        
+        .instructions {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .controls button {
+                padding: 8px 15px;
+                font-size: 14px;
+                margin: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 加载动画容器 -->
@@ -131,5 +246,92 @@
     
  <script src="script.js"></script>
     <script src="menu.js"></script>
+     <script>
+        // 自动调整iframe内容大小
+        function adjustIframeSize() {
+            const iframe = document.getElementById('dinoGame');
+            const wrapper = document.querySelector('.iframe-wrapper');
+            
+            // 计算合适的宽高比（恐龙游戏的标准比例）
+            const targetRatio = 1200 / 300; // 原始游戏宽高比
+            
+            // 获取容器大小
+            const containerWidth = wrapper.clientWidth;
+            const containerHeight = wrapper.clientHeight;
+            
+            // 计算基于容器的最佳尺寸
+            let width = containerWidth;
+            let height = width / targetRatio;
+            
+            // 如果高度超过容器，则基于高度计算
+            if (height > containerHeight) {
+                height = containerHeight;
+                width = height * targetRatio;
+            }
+            
+            // 设置iframe尺寸
+            iframe.style.width = width + 'px';
+            iframe.style.height = height + 'px';
+            
+            // 居中iframe
+            iframe.style.left = (containerWidth - width) / 2 + 'px';
+            iframe.style.top = (containerHeight - height) / 2 + 'px';
+        }
+        
+        // 刷新游戏
+        function refreshGame() {
+            const iframe = document.getElementById('dinoGame');
+            iframe.src = iframe.src; // 重新加载
+        }
+        
+        // 全屏模式
+        function toggleFullscreen() {
+            const wrapper = document.querySelector('.iframe-wrapper');
+            
+            if (!document.fullscreenElement) {
+                if (wrapper.requestFullscreen) {
+                    wrapper.requestFullscreen();
+                } else if (wrapper.webkitRequestFullscreen) {
+                    wrapper.webkitRequestFullscreen();
+                } else if (wrapper.msRequestFullscreen) {
+                    wrapper.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+        
+        // 监听全屏变化
+        document.addEventListener('fullscreenchange', adjustIframeSize);
+        document.addEventListener('webkitfullscreenchange', adjustIframeSize);
+        document.addEventListener('msfullscreenchange', adjustIframeSize);
+        
+        // 原网页打开
+        function openOriginal() {
+            window.open('https://dinosaur.game/zh/dinosaur-game', '_blank');
+        }
+        
+        // 初始调整大小
+        window.addEventListener('load', adjustIframeSize);
+        window.addEventListener('resize', adjustIframeSize);
+        
+        // iframe加载完成
+        document.getElementById('dinoGame').onload = function() {
+            console.log('游戏加载完成');
+            adjustIframeSize();
+            
+            // 尝试注入键盘事件（可能需要同源）
+            try {
+                const iframeWindow = this.contentWindow;
+                if (iframeWindow) {
+                    // 可以在这里添加跨域通信
+                }
+            } catch (e) {
+                console.log('跨域限制，无法访问iframe内部');
+            }
+        };
+    </script>
 </body>
 </html>
