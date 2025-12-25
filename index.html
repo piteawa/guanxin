@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>极慢速粒子背景</title>
+    <title>寻隐轩</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 加载动画容器 -->
+    <div class="page-transition">
+        <div class="loading-particles">
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 0s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 0.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 0.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 0.75s;"></div>
+            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 1s;"></div>
+            <div class="loading-particle" style="background: #339af0; animation-delay: 1.25s;"></div>
+            <div class="loading-particle" style="background: #cc5de8; animation-delay: 1.5s;"></div>
+            <div class="loading-particle" style="background: #ffffff; animation-delay: 1.75s;"></div>
+        </div>
+    </div>
+    
     <!-- 背景Canvas -->
     <canvas id="backgroundCanvas"></canvas>
     
@@ -36,42 +50,54 @@
                         <span>首页</span>
                     </a>
                 </li>
+                
                 <li class="nav-item dropdown">
-                    <a href="tool.html" class="nav-link">
+                    <a href="tools.html" class="nav-link">
+                        <i class="fas fa-tools"></i>
                         <span>实用工具</span>
                         <i class="fas fa-chevron-down dropdown-icon"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a href="cood.html" class="dropdown-item">
-                            <span>html相关</span>
+                            <i class="fas fa-code"></i>
+                            <span>HTML相关</span>
                         </a>
                         <a href="counter.html" class="dropdown-item">
+                            <i class="fas fa-calculator"></i>
                             <span>文字计数器</span>
                         </a>
                         <a href="textfinddiferent.html" class="dropdown-item">
+                            <i class="fas fa-search"></i>
                             <span>文字找不同</span>
                         </a>
                     </div>
                 </li>
+                
                 <li class="nav-item">
                     <a href="guanxin.html" class="nav-link">
+                        <i class="fas fa-user"></i>
                         <span>网站站长</span>
                     </a>
                 </li>
+                
                 <li class="nav-item dropdown">
-                    <a href="tools.html" class="nav-link">
+                    <a href="games.html" class="nav-link">
+                        <i class="fas fa-gamepad"></i>
                         <span>小游戏</span>
                         <i class="fas fa-chevron-down dropdown-icon"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a href="dinosaur.html" class="dropdown-item">
+                            <i class="fas fa-dragon"></i>
                             <span>小恐龙</span>
                         </a>
                         <a href="2048.html" class="dropdown-item">
+                            <i class="fas fa-th-large"></i>
                             <span>2048</span>
                         </a>
                     </div>
                 </li>
+                
                 <li class="nav-item">
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link">
                         <i class="fab fa-github"></i>
@@ -81,7 +107,7 @@
             </ul>
             
             <!-- 移动端菜单按钮 -->
-            <button class="hamburger" aria-label="菜单">
+            <button class="hamburger" id="hamburger" aria-label="菜单">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -90,32 +116,19 @@
     </nav>
     
     <!-- 移动端菜单遮罩 -->
-    <div class="mobile-overlay"></div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
     
     <!-- 主内容区域 -->
-    <div class="content">
-        <div class="header">
+    <main class="content">
+        <header class="header">
             <h1 class="glow-title">寻隐轩</h1>
             <p class="subtitle">只在此山中，云深不知处</p>
-        </div>
-        <div class="info-section" id="usage">
+        </header>
+        
+        <section class="info-section" id="usage">
             <!-- 这里可以添加内容 -->
-        </div>
-    </div>
-    
-    <!-- 加载动画容器 -->
-    <div class="page-transition">
-        <div class="loading-particles">
-            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 0s;"></div>
-            <div class="loading-particle" style="background: #339af0; animation-delay: 0.25s;"></div>
-            <div class="loading-particle" style="background: #cc5de8; animation-delay: 0.5s;"></div>
-            <div class="loading-particle" style="background: #ffffff; animation-delay: 0.75s;"></div>
-            <div class="loading-particle" style="background: #ff6b6b; animation-delay: 1s;"></div>
-            <div class="loading-particle" style="background: #339af0; animation-delay: 1.25s;"></div>
-            <div class="loading-particle" style="background: #cc5de8; animation-delay: 1.5s;"></div>
-            <div class="loading-particle" style="background: #ffffff; animation-delay: 1.75s;"></div>
-        </div>
-    </div>
+        </section>
+    </main>
     
     <script src="script.js"></script>
     <script src="menu.js"></script>
