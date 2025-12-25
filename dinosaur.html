@@ -234,7 +234,6 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
     
     <!-- 主内容区域 -->
-    <!-- 直接iframe可能被目标网站阻止 -->
     <iframe 
         src="https://dinosaur.game/zh/dinosaur-game" 
         width="1000" 
@@ -242,8 +241,18 @@
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
+        您的浏览器不支持iframe
     </iframe>
-    
+  
+          <section class="info-section" id="usage">
+              <div class="controls">
+            <button onclick="refreshGame()">🔄 刷新游戏</button>
+            <button onclick="toggleFullscreen()" class="fullscreen-btn">⛶ 全屏模式</button>
+            <button onclick="openOriginal()">🌐 原网页打开</button>
+              </div>
+<p>如果游戏无法加载，请尝试刷新页面或点击"原网页打开"按钮</p>
+        </section>
+  
  <script src="script.js"></script>
     <script src="menu.js"></script>
      <script>
