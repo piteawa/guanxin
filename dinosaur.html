@@ -317,7 +317,12 @@
     </iframe>
   
           <section class="info-section" id="usage">
-            <button onclick="openOriginal()">原网页打开</button>
+  <button class="neon-btn" onclick="openOriginal()">
+        <span>
+            <i class="fas fa-globe-americas"></i>
+            原网页打开
+        </span>
+    </button>
 <center></center><p>如果游戏无法加载，请尝试刷新页面或点击"原网页打开"按钮</p></center>
         </section>
   
@@ -355,60 +360,13 @@
             iframe.style.top = (containerHeight - height) / 2 + 'px';
         }
         
-        // 刷新游戏
-        function refreshGame() {
-            const iframe = document.getElementById('dinoGame');
-            iframe.src = iframe.src; // 重新加载
-        }
-        
-        // 全屏模式
-        function toggleFullscreen() {
-            const wrapper = document.querySelector('.iframe-wrapper');
-            
-            if (!document.fullscreenElement) {
-                if (wrapper.requestFullscreen) {
-                    wrapper.requestFullscreen();
-                } else if (wrapper.webkitRequestFullscreen) {
-                    wrapper.webkitRequestFullscreen();
-                } else if (wrapper.msRequestFullscreen) {
-                    wrapper.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-        
-        // 监听全屏变化
-        document.addEventListener('fullscreenchange', adjustIframeSize);
-        document.addEventListener('webkitfullscreenchange', adjustIframeSize);
-        document.addEventListener('msfullscreenchange', adjustIframeSize);
-        
+
         // 原网页打开
         function openOriginal() {
             window.open('https://dinosaur.game/zh/dinosaur-game', '_blank');
         }
         
-        // 初始调整大小
-        window.addEventListener('load', adjustIframeSize);
-        window.addEventListener('resize', adjustIframeSize);
-        
-        // iframe加载完成
-        document.getElementById('dinoGame').onload = function() {
-            console.log('游戏加载完成');
-            adjustIframeSize();
-            
-            // 尝试注入键盘事件（可能需要同源）
-            try {
-                const iframeWindow = this.contentWindow;
-                if (iframeWindow) {
-                    // 可以在这里添加跨域通信
-                }
-            } catch (e) {
-                console.log('跨域限制，无法访问iframe内部');
-            }
-        };
+  
     </script>
 </body>
 </html>
