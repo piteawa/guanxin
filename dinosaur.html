@@ -120,6 +120,77 @@
                 margin: 5px;
             }
         }
+         .neon-btn {
+            position: relative;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, 
+                #667eea 0%, 
+                #764ba2 25%, 
+                #f093fb 50%, 
+                #f5576c 75%, 
+                #b8cbb8 100%);
+            background-size: 300% 300%;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            animation: gradientBG 8s ease infinite;
+            box-shadow: 
+                0 4px 20px rgba(102, 126, 234, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+        
+        .neon-btn span {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .neon-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 30px rgba(102, 126, 234, 0.6),
+                0 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+        
+        .neon-btn:hover::before {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .neon-btn:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 15px rgba(102, 126, 234, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+        
+        @keyframes gradientBG {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .neon-btn i {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -234,7 +305,7 @@
     <div class="mobile-overlay" id="mobileOverlay"></div>
     
     <!-- 主内容区域 -->
-    </br>    </br>    </br>    </br>    </br>  
+    </br>    </br>    </br>    </br>  
     <iframe 
         src="https://dinosaur.game/zh/dinosaur-game" 
         width="1000" 
