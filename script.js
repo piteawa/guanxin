@@ -351,26 +351,13 @@ function createMouseHalo() {
     });
 }
 
-// 页面加载动画
-function createLoadingAnimation() {
-    const loadingDiv = document.querySelector('.page-transition');
-    if (!loadingDiv) return;
-    
-    setTimeout(() => {
-        loadingDiv.style.opacity = '0';
-        setTimeout(() => {
-            loadingDiv.style.display = 'none';
-        }, 500);
-    }, 1500);
-}
-
 // 初始化
 function init() {
     initParticles();
     createMouseHalo();
-    createLoadingAnimation();
     animate(0);
 }
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', init);
+
